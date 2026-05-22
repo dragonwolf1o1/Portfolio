@@ -1,5 +1,6 @@
 import os
 
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand, CommandError
 
@@ -16,6 +17,8 @@ class Command(BaseCommand):
             raise CommandError("DJANGO_SUPERUSER_USERNAME is required.")
 
         if not password:
+            if os.getenv("VERCEL") or not settings.DEBUG:
+                raise CommandError("DJANGO_SUPERUSER_PASSWORD is required for deployment.")
             self.stdout.write(self.style.WARNING("DJANGO_SUPERUSER_PASSWORD is not set; skipped superuser update."))
             return
 

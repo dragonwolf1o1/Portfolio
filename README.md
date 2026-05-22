@@ -22,6 +22,7 @@ Django portfolio website using SQLite for local data storage.
 6. Deploy. Vercel will detect Django from `manage.py`, use `portfolio_project/wsgi.py`, and run the static build command from `vercel.json`.
 
 To change the deployed admin password, update `DJANGO_SUPERUSER_PASSWORD` in Vercel and redeploy.
+The build log should show `Superuser admin@1o1rowc created` or `Superuser admin@1o1rowc updated`.
 
 SQLite data is created from migrations during deployment. Admin changes made on a serverless host may not persist like a hosted database.
 
