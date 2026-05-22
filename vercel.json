@@ -1,10 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "django",
-  "buildCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput --clear",
-  "functions": {
-    "portfolio_project/wsgi.py": {
-      "excludeFiles": "{.venv/**,__pycache__/**,**/__pycache__/**,staticfiles/**,staticfiles_build/**,database/**,*.log,runserver.*.log,*.pyc}"
-    }
-  }
+  "buildCommand": "python manage.py migrate --noinput && python manage.py collectstatic --noinput --clear"
 }
