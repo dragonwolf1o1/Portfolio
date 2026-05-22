@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.meta_projects_title }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>{{ content.projects_banner_title }}</h1>
+</section>
+
+<section class="projects-section container fade-up">
+  <div class="project-grid">
+    {% for project in projects %}
+      <div class="project-card">
+        <img src="{{ project.image_url }}" alt="{{ project.image_alt }}">
+        <div class="project-content">
+          <p class="eyebrow">{% if project.languages_used %}{{ project.languages_used }}{% else %}{{ project.eyebrow }}{% endif %}</p>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description|linebreaksbr }}</p>
+          {% if project.extra_description %}
+            <p>{{ project.extra_description|linebreaksbr }}</p>
+          {% endif %}
+          {% if project.repo_url or project.live_url %}
+            <div class="project-actions">
+              {% if project.repo_url %}
+                <a href="{{ project.repo_url }}" target="_blank" rel="noreferrer" class="project-link">GitHub</a>
+              {% endif %}
+              {% if project.live_url %}
+                <a href="{{ project.live_url }}" target="_blank" rel="noreferrer" class="project-link">Live Demo</a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

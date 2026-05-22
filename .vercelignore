@@ -1,0 +1,14 @@
+.venv
+.env
+.env.*
+!.env.example
+.env.credentails
+__pycache__
+**/__pycache__
+*.pyc
+*.log
+db.sqlite3
+staticfiles
+staticfiles_build
+database
+.vscode

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.error_404_meta_title }}{% endblock %}
+
+{% block content %}
+<section class="error-page">
+  <div class="container error-content fade-up">
+    <p class="error-code">{{ content.error_404_code }}</p>
+    <p class="subtitle">{{ content.error_404_subtitle }}</p>
+    <h1>{{ content.error_404_title }}</h1>
+    <p>{{ content.error_404_description|linebreaksbr }}</p>
+    <div class="error-actions">
+      <a href="{% url 'portfolio:home' %}" class="btn primary-btn">{{ content.error_home_button }}</a>
+      <a href="{% url 'portfolio:projects' %}" class="btn secondary-btn">{{ content.error_projects_button }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

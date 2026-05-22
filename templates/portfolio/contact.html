@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.meta_contact_title }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>{{ content.contact_banner_title }}</h1>
+</section>
+
+<section class="contact-section container fade-up">
+  <div class="contact-details contact-panel">
+    <p class="subtitle">{{ content.contact_subtitle }}</p>
+    <h2>{{ content.contact_title }}</h2>
+    <p>{{ content.contact_intro|linebreaksbr }}</p>
+
+    <div class="detail-list">
+      {% for detail in contact_details %}
+        <div class="detail-card">
+          <span>{{ detail.label }}</span>
+          {% if detail.href %}
+            <a href="{{ detail.href }}" {% if 'http' in detail.href %}target="_blank" rel="noreferrer"{% endif %}>{{ detail.value }}</a>
+          {% else %}
+            <p>{{ detail.value }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

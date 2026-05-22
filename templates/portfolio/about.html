@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.meta_about_title }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>{{ content.about_banner_title }}</h1>
+</section>
+
+<section class="about-section container fade-up">
+  <div class="about-grid">
+    <div class="about-photo">
+      <div class="about-glow"></div>
+      <img src="{{ content.about_image_url }}" alt="{{ content.about_image_alt }}">
+    </div>
+
+    <div>
+      <p class="subtitle">{{ content.about_subtitle }}</p>
+      <h2>{{ content.about_title }}</h2>
+      <p>{{ content.about_intro|linebreaksbr }}</p>
+      <p>{{ content.about_focus|linebreaksbr }}</p>
+      <p>{{ content.about_django|linebreaksbr }}</p>
+
+      <div class="skills">
+        {% for skill in skills %}
+          <div class="skill">
+            <span>{{ skill.name }}</span>
+            <div class="progress"><div style="width:{{ skill.percentage }}%"></div></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.experience_section_eyebrow }}</p>
+    <h2>{{ content.experience_section_title }}</h2>
+  </div>
+
+  {% for experience in experiences %}
+    <div class="timeline-card">
+      <div>
+        <p class="eyebrow">{{ experience.date_range }}</p>
+        <h3>{{ experience.title }}</h3>
+        <p>{{ experience.organization }}{% if experience.location %}, {{ experience.location }}{% endif %}</p>
+      </div>
+
+      <ul class="resume-list">
+        {% for bullet in experience.bullets.all %}
+          {% if bullet.is_active %}
+            <li>{{ bullet.text }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.foundation_section_eyebrow }}</p>
+    <h2>{{ content.foundation_section_title }}</h2>
+  </div>
+
+  <div class="info-grid">
+    {% for card in info_cards %}
+      <div class="info-card">
+        <p class="eyebrow">{{ card.eyebrow }}</p>
+        <h3>{{ card.title }}</h3>
+        {% if card.body %}
+          <p>{{ card.body|linebreaksbr }}</p>
+        {% endif %}
+        {% if card.bullets.all %}
+          <ul class="resume-list compact">
+            {% for bullet in card.bullets.all %}
+              {% if bullet.is_active %}
+                <li>{{ bullet.text }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

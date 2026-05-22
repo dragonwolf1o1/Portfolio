@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ content.meta_default_title }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script defer src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar container">
+      <a class="logo" href="{% url 'portfolio:home' %}">{{ content.site_logo_text }}<span>{{ content.site_logo_accent }}</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'portfolio:home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">{{ content.nav_home }}</a></li>
+        <li><a href="{% url 'portfolio:about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">{{ content.nav_about }}</a></li>
+        <li><a href="{% url 'portfolio:projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">{{ content.nav_projects }}</a></li>
+        <li><a href="{% url 'portfolio:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{{ content.nav_contact }}</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <div class="container footer-content">
+      <p>{{ content.footer_text }}</p>
+    </div>
+  </footer>
+</body>
+</html>

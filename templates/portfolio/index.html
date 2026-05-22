@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.meta_home_title }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-content container fade-up">
+    <div class="hero-text">
+      <p class="subtitle">{{ content.home_hero_subtitle }}</p>
+      <h1>{{ content.home_hero_title }}</h1>
+      <p>{{ content.home_hero_description|linebreaksbr }}</p>
+
+      <div class="hero-buttons">
+        <a href="{% url 'portfolio:projects' %}" class="btn primary-btn">{{ content.home_primary_button }}</a>
+        <a href="{% url 'portfolio:contact' %}" class="btn secondary-btn">{{ content.home_secondary_button }}</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="glow"></div>
+      <img src="{{ content.home_hero_image_url }}" alt="{{ content.home_hero_image_alt }}">
+    </div>
+  </div>
+</section>
+
+<section class="stats container fade-up">
+  {% for stat in stats %}
+    <div class="stat-card">
+      <h2>{{ stat.value }}</h2>
+      <p>{{ stat.label }}</p>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="services container fade-up">
+  <div class="section-title">
+    <p>{{ content.home_services_eyebrow }}</p>
+    <h2>{{ content.home_services_title }}</h2>
+  </div>
+
+  <div class="service-grid">
+    {% for service in services %}
+      <div class="service-card">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description|linebreaksbr }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
