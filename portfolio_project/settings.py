@@ -1,5 +1,7 @@
 import os
+import ssl
 from pathlib import Path
+from urllib.parse import parse_qs, unquote, urlparse
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,8 +89,42 @@ TEMPLATES = [
 WSGI_APPLICATION = "portfolio_project.wsgi.application"
 
 
+def mysql_options(ssl_mode=None):
+    options = {
+        "charset": "utf8mb4",
+    }
+
+    if ssl_mode and ssl_mode.upper() in {"REQUIRED", "VERIFY_CA", "VERIFY_IDENTITY"}:
+        options["ssl"] = {
+            "check_hostname": ssl_mode.upper() == "VERIFY_IDENTITY",
+            "verify_mode": ssl.CERT_REQUIRED if ssl_mode.upper() in {"VERIFY_CA", "VERIFY_IDENTITY"} else ssl.CERT_NONE,
+        }
+
+    return options
+
+
+def mysql_config_from_url(database_url):
+    parsed = urlparse(database_url)
+    query = parse_qs(parsed.query)
+    ssl_mode = query.get("ssl-mode", query.get("ssl_mode", [os.getenv("MYSQL_SSL_MODE", "")]))[0]
+
+    return {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": unquote(parsed.path.lstrip("/")) or os.getenv("MYSQL_DATABASE", "defaultdb"),
+        "USER": unquote(parsed.username or ""),
+        "PASSWORD": unquote(parsed.password or ""),
+        "HOST": parsed.hostname or "",
+        "PORT": str(parsed.port or 3306),
+        "OPTIONS": mysql_options(ssl_mode),
+    }
+
+
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+
 DATABASES = {
-    "default": {
+    "default": mysql_config_from_url(DATABASE_URL)
+    if DATABASE_URL
+    else {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
