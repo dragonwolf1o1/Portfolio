@@ -18,7 +18,10 @@ Django portfolio website using SQLite for local data storage.
 2. Import the GitHub repository in Vercel.
 3. Add environment variables from `.env.example` in Vercel Project Settings.
 4. Keep `DJANGO_DEBUG=False` on Vercel.
-5. Deploy. Vercel will detect Django from `manage.py`, use `portfolio_project/wsgi.py`, and run the static build command from `vercel.json`.
+5. Set `DJANGO_SUPERUSER_PASSWORD` to the admin password you want on Vercel.
+6. Deploy. Vercel will detect Django from `manage.py`, use `portfolio_project/wsgi.py`, and run the static build command from `vercel.json`.
+
+To change the deployed admin password, update `DJANGO_SUPERUSER_PASSWORD` in Vercel and redeploy.
 
 SQLite data is created from migrations during deployment. Admin changes made on a serverless host may not persist like a hosted database.
 
