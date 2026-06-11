@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ content.meta_resume_title }}{% endblock %}
+
+{% block content %}
+<section class="page-banner resume-banner">
+  <h1>{{ content.resume_banner_title }}</h1>
+</section>
+
+<section class="resume-overview container fade-up">
+  <div class="resume-intro">
+    <p class="subtitle">{{ content.resume_subtitle }}</p>
+    <h2>{{ content.resume_title }}</h2>
+    <p>{{ content.resume_summary|linebreaksbr }}</p>
+
+    <div class="resume-actions">
+      <a href="{% static 'files/Saurabh_Gupta_Resume.pdf' %}" class="btn primary-btn" target="_blank" rel="noreferrer" download>{{ content.resume_download_label }}</a>
+      <a href="{% url 'portfolio:contact' %}" class="btn secondary-btn">{{ content.resume_contact_label }}</a>
+    </div>
+  </div>
+
+  <div class="resume-metric-grid" aria-label="{{ content.resume_metrics_title }}">
+    {% for metric in resume_metrics %}
+      <div class="resume-metric">
+        <strong>{{ metric.value }}</strong>
+        <span>{{ metric.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.resume_skills_eyebrow }}</p>
+    <h2>{{ content.resume_skills_title }}</h2>
+  </div>
+
+  <div class="resume-skill-grid">
+    {% for group in resume_skill_groups %}
+      <div class="resume-skill-card">
+        <p class="eyebrow">{{ group.eyebrow }}</p>
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.tools }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="skills resume-progress">
+    {% for skill in skills %}
+      <div class="skill">
+        <span>{{ skill.name }}</span>
+        <div class="progress"><div style="width:{{ skill.percentage }}%"></div></div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.resume_profile_eyebrow }}</p>
+    <h2>{{ content.resume_profile_title }}</h2>
+  </div>
+
+  {% for experience in experiences %}
+    <div class="timeline-card resume-timeline-card">
+      <div>
+        <p class="eyebrow">{{ experience.date_range }}</p>
+        <h3>{{ experience.title }}</h3>
+        <p>{{ experience.organization }}{% if experience.location %}, {{ experience.location }}{% endif %}</p>
+      </div>
+
+      <ul class="resume-list">
+        {% for bullet in experience.bullets.all %}
+          {% if bullet.is_active %}
+            <li>{{ bullet.text }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.resume_projects_eyebrow }}</p>
+    <h2>{{ content.resume_projects_title }}</h2>
+  </div>
+
+  <div class="resume-project-grid">
+    {% for project in featured_projects %}
+      <div class="resume-project-card">
+        <p class="eyebrow">{% if project.languages_used %}{{ project.languages_used }}{% else %}{{ project.eyebrow }}{% endif %}</p>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description|linebreaksbr }}</p>
+        {% if project.extra_description %}
+          <p>{{ project.extra_description|linebreaksbr }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="resume-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.resume_foundation_eyebrow }}</p>
+    <h2>{{ content.resume_foundation_title }}</h2>
+  </div>
+
+  <div class="info-grid">
+    {% for card in info_cards %}
+      <div class="info-card">
+        <p class="eyebrow">{{ card.eyebrow }}</p>
+        <h3>{{ card.title }}</h3>
+        {% if card.body %}
+          <p>{{ card.body|linebreaksbr }}</p>
+        {% endif %}
+        {% if card.bullets.all %}
+          <ul class="resume-list compact">
+            {% for bullet in card.bullets.all %}
+              {% if bullet.is_active %}
+                <li>{{ bullet.text }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

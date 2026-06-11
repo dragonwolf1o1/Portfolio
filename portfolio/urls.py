@@ -8,6 +8,7 @@ app_name = "portfolio"
 urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
+    path("resume/", views.resume, name="resume"),
     path("projects/", views.projects, name="projects"),
     path("contact/", views.contact, name="contact"),
     path("error/404/", views.error_404, name="error_404"),

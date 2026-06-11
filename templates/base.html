@@ -19,6 +19,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="{% url 'portfolio:home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">{{ content.nav_home }}</a></li>
         <li><a href="{% url 'portfolio:about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">{{ content.nav_about }}</a></li>
+        <li><a href="{% url 'portfolio:resume' %}" class="{% if request.resolver_match.url_name == 'resume' %}active{% endif %}">{{ content.nav_resume }}</a></li>
         <li><a href="{% url 'portfolio:projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">{{ content.nav_projects }}</a></li>
         <li><a href="{% url 'portfolio:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{{ content.nav_contact }}</a></li>
       </ul>
