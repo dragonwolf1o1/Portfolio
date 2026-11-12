@@ -713,13 +713,14 @@ a {
 
 .detail-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1.4rem;
 }
 
 .detail-card {
   padding: 1.2rem;
+  min-width: 0;
 }
 
 .detail-card span {
@@ -732,7 +733,15 @@ a {
 .detail-card a {
   color: #f7f7f2;
   text-decoration: none;
-  overflow-wrap: anywhere;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.detail-card p {
+  overflow-wrap: normal;
 }
 
 .detail-card a:hover {
@@ -895,5 +904,14 @@ footer p {
 @media (max-width: 520px) {
   .method-grid {
     grid-template-columns: 1fr;
+  }
+
+  .detail-list {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-card a,
+  .detail-card p {
+    overflow-wrap: anywhere;
   }
 }
