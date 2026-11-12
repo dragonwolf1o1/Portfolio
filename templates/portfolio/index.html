@@ -32,6 +32,34 @@
   {% endfor %}
 </section>
 
+<section class="value-section container fade-up">
+  <div class="value-copy">
+    <p class="eyebrow">{{ content.value_eyebrow }}</p>
+    <h2>{{ content.value_title }}</h2>
+    <p>{{ content.value_description }}</p>
+  </div>
+  <div class="value-stack" aria-label="{{ content.value_stack_label }}">
+    <span>Python</span><span>SQL / MySQL</span><span>Power BI</span><span>Django</span><span>ETL</span><span>Excel</span>
+  </div>
+</section>
+
+<section class="method-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.method_eyebrow }}</p>
+    <h2>{{ content.method_title }}</h2>
+    <p class="section-intro">{{ content.method_intro }}</p>
+  </div>
+  <div class="method-grid">
+    {% for step in method_steps %}
+      <article class="method-step">
+        <span class="method-number">{{ step.number }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.body }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="services container fade-up">
   <div class="section-title">
     <p>{{ content.home_services_eyebrow }}</p>
@@ -46,5 +74,31 @@
       </div>
     {% endfor %}
   </div>
+</section>
+
+<section class="testimonials-section container fade-up">
+  <div class="section-title">
+    <p>{{ content.testimonials_eyebrow }}</p>
+    <h2>{{ content.testimonials_title }}</h2>
+    <p class="section-intro">{{ content.testimonials_intro }}</p>
+  </div>
+  {% if testimonials %}
+    <div class="testimonial-grid">
+      {% for testimonial in testimonials %}
+        <figure class="testimonial-card">
+          <blockquote>{{ testimonial.quote }}</blockquote>
+          <figcaption>
+            <strong>{{ testimonial.client_name }}</strong>
+            <span>{% if testimonial.client_role %}{{ testimonial.client_role }}{% endif %}{% if testimonial.company %}{% if testimonial.client_role %}, {% endif %}{{ testimonial.company }}{% endif %}</span>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="testimonial-empty">
+      <p>{{ content.testimonials_empty }}</p>
+      <a class="text-link" href="{% url 'portfolio:contact' %}">{{ content.testimonials_cta }} <span aria-hidden="true">→</span></a>
+    </div>
+  {% endif %}
 </section>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import ContactDetail, Experience, InfoCard, Project, Service, Skill, Statistic
+from .models import ContactDetail, Experience, InfoCard, Project, Service, Skill, Statistic, Testimonial
 
 
 CONTACT_LABELS = ["Phone", "Email", "LinkedIn", "Address", "GitHub"]
@@ -45,6 +45,13 @@ def home(request):
         {
             "stats": Statistic.objects.filter(is_active=True),
             "services": Service.objects.filter(is_active=True),
+            "testimonials": Testimonial.objects.filter(is_active=True),
+            "method_steps": [
+                {"number": "01", "title": "Diagnose", "body": "Align on the decision, bottleneck, or reporting gap behind the request."},
+                {"number": "02", "title": "Model", "body": "Validate the data, define useful metrics, and design the right analytical or application workflow."},
+                {"number": "03", "title": "Deliver", "body": "Build, test, and document a solution your team can use and maintain."},
+                {"number": "04", "title": "Measure", "body": "Review the outcome against agreed indicators and refine where the evidence points."},
+            ],
         },
     )
 

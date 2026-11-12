@@ -12,6 +12,7 @@ from .models import (
     SiteText,
     Skill,
     Statistic,
+    Testimonial,
 )
 
 
@@ -80,7 +81,14 @@ class InfoCardAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ("title", "source", "languages_used", "order", "is_active")
     list_editable = ("order", "is_active")
-    search_fields = ("title", "eyebrow", "description", "extra_description", "repo_url", "live_url", "source", "languages_used")
+    search_fields = ("title", "eyebrow", "description", "challenge", "solution", "business_impact", "repo_url", "live_url", "source", "languages_used")
+
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ("client_name", "client_role", "company", "order", "is_active")
+    list_editable = ("order", "is_active")
+    search_fields = ("client_name", "client_role", "company", "quote")
 
 
 @admin.register(ContactDetail)

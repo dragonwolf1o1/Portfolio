@@ -8,16 +8,24 @@
 </section>
 
 <section class="projects-section container fade-up">
-  <div class="project-grid">
+  <div class="project-grid case-study-grid">
     {% for project in projects %}
-      <div class="project-card">
+      <article class="project-card case-study-card">
         <img src="{{ project.image_url }}" alt="{{ project.image_alt }}">
         <div class="project-content">
           <p class="eyebrow">{% if project.languages_used %}{{ project.languages_used }}{% else %}{{ project.eyebrow }}{% endif %}</p>
           <h3>{{ project.title }}</h3>
-          <p>{{ project.description|linebreaksbr }}</p>
-          {% if project.extra_description %}
-            <p>{{ project.extra_description|linebreaksbr }}</p>
+          {% if project.challenge or project.solution or project.business_impact or project.implementation_time %}
+            <p class="case-study-summary">{{ project.description|linebreaksbr }}</p>
+            <dl class="case-study-details">
+              {% if project.challenge %}<div><dt>Challenge</dt><dd>{{ project.challenge|linebreaksbr }}</dd></div>{% endif %}
+              {% if project.solution %}<div><dt>Technical solution</dt><dd>{{ project.solution|linebreaksbr }}</dd></div>{% endif %}
+              <div><dt>Implementation time</dt><dd>{% if project.implementation_time %}{{ project.implementation_time }}{% else %}Not specified{% endif %}</dd></div>
+              {% if project.business_impact %}<div class="case-study-impact"><dt>Business impact</dt><dd>{{ project.business_impact|linebreaksbr }}</dd></div>{% endif %}
+            </dl>
+          {% else %}
+            <p>{{ project.description|linebreaksbr }}</p>
+            {% if project.extra_description %}<p>{{ project.extra_description|linebreaksbr }}</p>{% endif %}
           {% endif %}
           {% if project.repo_url or project.live_url %}
             <div class="project-actions">
@@ -30,7 +38,7 @@
             </div>
           {% endif %}
         </div>
-      </div>
+      </article>
     {% endfor %}
   </div>
 </section>

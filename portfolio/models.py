@@ -89,6 +89,10 @@ class Project(OrderedContent):
     title = models.CharField(max_length=180)
     description = models.TextField()
     extra_description = models.TextField(blank=True)
+    challenge = models.TextField(blank=True)
+    solution = models.TextField(blank=True)
+    implementation_time = models.CharField(max_length=120, blank=True)
+    business_impact = models.TextField(blank=True)
     image_url = models.URLField(max_length=600)
     image_alt = models.CharField(max_length=160)
     repo_url = models.URLField(max_length=255, blank=True, unique=True, null=True)
@@ -102,6 +106,16 @@ class Project(OrderedContent):
     @property
     def language_list(self):
         return [language.strip() for language in self.languages_used.split(",") if language.strip()]
+
+
+class Testimonial(OrderedContent):
+    client_name = models.CharField(max_length=160)
+    client_role = models.CharField(max_length=180, blank=True)
+    company = models.CharField(max_length=180, blank=True)
+    quote = models.TextField()
+
+    def __str__(self):
+        return self.client_name
 
 
 class ContactDetail(OrderedContent):
