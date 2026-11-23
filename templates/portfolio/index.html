@@ -1,104 +1,504 @@
-{% extends "base.html" %}
-
-{% block title %}{{ content.meta_home_title }}{% endblock %}
-
-{% block content %}
-<section class="hero">
-  <div class="hero-content container fade-up">
-    <div class="hero-text">
-      <p class="subtitle">{{ content.home_hero_subtitle }}</p>
-      <h1>{{ content.home_hero_title }}</h1>
-      <p>{{ content.home_hero_description|linebreaksbr }}</p>
-
-      <div class="hero-buttons">
-        <a href="{% url 'portfolio:projects' %}" class="btn primary-btn">{{ content.home_primary_button }}</a>
-        <a href="{% url 'portfolio:contact' %}" class="btn secondary-btn">{{ content.home_secondary_button }}</a>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <div class="glow"></div>
-      <img src="{{ content.home_hero_image_url }}" alt="{{ content.home_hero_image_alt }}">
-    </div>
-  </div>
+{% load static %}
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saurabh Gupta | Data Analyst | Developer</title>
+<meta name="description" content="From validated ETL pipelines and decision-ready dashboards to Django tools that reduce repetitive work, I build practical solutions around measurable business needs.">
+<meta name="theme-color" content="#0f131c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Saurabh Gupta | Data Analyst | Developer">
+<meta property="og:description" content="From validated ETL pipelines and decision-ready dashboards to Django tools that reduce repetitive work, I build practical solutions around measurable business needs.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='2' y='2' width='24' height='24' rx='4' fill='%230f131c' stroke='%2389ceff' stroke-width='1.75'/%3E%3Ctext x='14' y='18.5' font-family='monospace' font-size='11' font-weight='700' fill='%2389ceff' text-anchor='middle'%3ESG%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="{% static 'portfolio-site/assets/fonts/inter-latin-400-normal.woff2' %}" as="font" type="font/woff2" crossorigin><link rel="preload" href="{% static 'portfolio-site/assets/fonts/plus-jakarta-sans-latin-700-normal.woff2' %}" as="font" type="font/woff2" crossorigin><link rel="preload" href="{% static 'portfolio-site/assets/fonts/jetbrains-mono-latin-500-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{% static 'portfolio-site/assets/css/styles.css' %}">
+<script>document.documentElement.classList.add('js');</script>
+<script defer src="{% static 'portfolio-site/assets/js/main.js' %}"></script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-arrow_downward" viewBox="0 -960 960 960"><path d="M450-800v526L202-522l-42 42 320 320 320-320-42-42-248 248v-526h-60Z"/></symbol><symbol id="i-arrow_forward" viewBox="0 -960 960 960"><path d="M686-450H160v-60h526L438-758l42-42 320 320-320 320-42-42 248-248Z"/></symbol><symbol id="i-monitoring" viewBox="0 -960 960 960"><path d="M120-120v-76l60-60v136h-60Zm165 0v-236l60-60v296h-60Zm165 0v-296l60 61v235h-60Zm165 0v-235l60-60v295h-60Zm165 0v-396l60-60v456h-60ZM120-356v-85l280-278 160 160 280-281v85L560-474 400-634 120-356Z"/></symbol><symbol id="i-dashboard" viewBox="0 -960 960 960"><path d="M510-570v-270h330v270H510ZM120-450v-390h330v390H120Zm390 330v-390h330v390H510Zm-390 0v-270h330v270H120Zm60-390h210v-270H180v270Zm390 330h210v-270H570v270Zm0-450h210v-150H570v150ZM180-180h210v-150H180v150Zm210-330Zm180-120Zm0 180ZM390-330Z"/></symbol><symbol id="i-database" viewBox="0 -960 960 960"><path d="M480-120q-151 0-255.5-46.5T120-280v-400q0-66 105.5-113T480-840q149 0 254.5 47T840-680v400q0 67-104.5 113.5T480-120Zm0-488q86 0 176.5-26.5T773-694q-27-32-117.5-59T480-780q-88 0-177 26t-117 60q28 35 116 60.5T480-608Zm-1 214q42 0 84-4.5t80.5-13.5q38.5-9 73.5-22t63-29v-155q-29 16-64 29t-74 22q-39 9-80 14t-83 5q-42 0-84-5t-80.5-14q-38.5-9-73-22T180-618v155q27 16 61 29t72.5 22q38.5 9 80.5 13.5t85 4.5Zm1 214q48 0 99-8.5t93.5-22.5q42.5-14 72-31t35.5-35v-125q-28 16-63 28.5T643.5-352q-38.5 9-80 13.5T479-334q-43 0-85-4.5T313.5-352q-38.5-9-72.5-21.5T180-402v126q5 17 34 34.5t72 31q43 13.5 94 22t100 8.5Z"/></symbol><symbol id="i-query_stats" viewBox="0 -960 960 960"><path d="m89-412-49-36 193-310 125 146 165-268 125 186 143-226 48 35-190 301-124-184-159 258-125-146L89-412Zm494 192q48 0 82.5-33.5T700-335q0-49-34-83t-83-34q-48 0-81.5 34.5T468-335q0 48 33.5 81.5T583-220ZM797-80 685-192q-22 15-47.5 23.5T583-160q-73 0-124-51t-51-124q0-73 51-125t124-52q74 0 125.5 51.5T760-335q0 29-8.5 54.5T727-233l112 111-42 42Z"/></symbol><symbol id="i-arrow_outward" viewBox="0 -960 960 960"><path d="m242-246-42-42 412-412H234v-60h480v480h-60v-378L242-246Z"/></symbol><symbol id="i-star" viewBox="0 -960 960 960"><path d="m323-245 157-94 157 95-42-178 138-120-182-16-71-168-71 167-182 16 138 120-42 178Zm-90 125 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-355Z"/></symbol><symbol id="i-call_split" viewBox="0 -960 960 960"><path d="M452-160v-306L220-698v123h-60v-225h225v60H263l249 249v331h-60Zm113-364-42-42 174-174H575v-60h225v225h-60v-123L565-524Z"/></symbol><symbol id="i-code" viewBox="0 -960 960 960"><path d="M320-242 80-482l242-242 43 43-199 199 197 197-43 43Zm318 2-43-43 199-199-197-197 43-43 240 240-242 242Z"/></symbol><symbol id="i-terminal" viewBox="0 -960 960 960"><path d="M140-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm0-60h680v-436H140v436Zm160-72-42-42 103-104-104-104 43-42 146 146-146 146Zm190 4v-60h220v60H490Z"/></symbol><symbol id="i-bar_chart" viewBox="0 -960 960 960"><path d="M660-160v-280h140v280H660Zm-250 0v-640h140v640H410Zm-250 0v-440h140v440H160Z"/></symbol><symbol id="i-account_tree" viewBox="0 -960 960 960"><path d="M604-120v-125H450v-410h-93v130H80v-315h277v125h247v-125h276v315H604v-130h-94v350h94v-130h276v315H604ZM140-780v195-195Zm524 405v195-195Zm0-405v195-195Zm0 195h156v-195H664v195Zm0 405h156v-195H664v195ZM140-585h157v-195H140v195Z"/></symbol><symbol id="i-download" viewBox="0 -960 960 960"><path d="M480-313 287-506l43-43 120 120v-371h60v371l120-120 43 43-193 193ZM220-160q-24 0-42-18t-18-42v-143h60v143h520v-143h60v143q0 24-18 42t-42 18H220Z"/></symbol><symbol id="i-description" viewBox="0 -960 960 960"><path d="M319-250h322v-60H319v60Zm0-170h322v-60H319v60ZM220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z"/></symbol><symbol id="i-format_quote" viewBox="0 -960 960 960"><path d="m248-240 94-162q-5 1-11 1.5t-11 .5q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 21-5.5 41T458-480L320-240h-72Zm360 0 94-162q-5 1-11 1.5t-11 .5q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 21-5.5 41T818-480L680-240h-72ZM376.5-503.5Q400-527 400-560t-23.5-56.5Q353-640 320-640t-56.5 23.5Q240-593 240-560t23.5 56.5Q287-480 320-480t56.5-23.5Zm360 0Q760-527 760-560t-23.5-56.5Q713-640 680-640t-56.5 23.5Q600-593 600-560t23.5 56.5Q647-480 680-480t56.5-23.5ZM680-560Zm-360 0Z"/></symbol><symbol id="i-call" viewBox="0 -960 960 960"><path d="M795-120q-116 0-236.5-56T335-335Q232-438 176-558.5T120-795q0-19.29 12.86-32.14Q145.71-840 165-840h140q14 0 24 10t14 25l26.93 125.64Q372-665 369.5-653.5t-10.73 19.73L259-533q26 44 55 82t64 72q37 38 78 69.5t86 55.5l95-98q10-11 23.15-15 13.15-4 25.85-2l119 26q15 4 25 16.04 10 12.05 10 26.96v135q0 19.29-12.86 32.14Q814.29-120 795-120ZM229-588l81-82-23-110H180q2 42 13.5 88.5T229-588Zm369 363q41 19 89 31t93 14v-107l-103-21-79 83ZM229-588Zm369 363Z"/></symbol><symbol id="i-mail" viewBox="0 -960 960 960"><path d="M140-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm340-302L140-685v465h680v-465L480-462Zm0-60 336-218H145l335 218ZM140-685v-55 520-465Z"/></symbol><symbol id="i-work" viewBox="0 -960 960 960"><path d="M140-120q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h180v-100q0-24 18-42t42-18h200q24 0 42 18t18 42v100h180q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H140v480Zm240-540h200v-100H380v100ZM140-180v-480 480Z"/></symbol><symbol id="i-location_on" viewBox="0 -960 960 960"><path d="M529.5-510.5Q550-531 550-560t-20.5-49.5Q509-630 480-630t-49.5 20.5Q410-589 410-560t20.5 49.5Q451-490 480-490t49.5-20.5ZM480-159q133-121 196.5-219.5T740-552q0-118-75.5-193T480-820q-109 0-184.5 75T220-552q0 75 65 173.5T480-159Zm0 79Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></symbol><symbol id="i-content_copy" viewBox="0 -960 960 960"><path d="M300-200q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h440q24 0 42 18t18 42v560q0 24-18 42t-42 18H300Zm0-60h440v-560H300v560ZM180-80q-24 0-42-18t-18-42v-620h60v620h500v60H180Zm120-180v-560 560Z"/></symbol><symbol id="i-menu" viewBox="0 -960 960 960"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></symbol><symbol id="i-close" viewBox="0 -960 960 960"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></symbol></svg>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-primary-container focus:text-on-primary-container focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30" id="site-header">
+<div class="h-16 max-w-[1200px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between gap-gutter">
+<a class="flex items-center gap-space-sm text-on-surface hover:text-primary transition-colors" href="#top" aria-label="Saurabh Gupta — home"><svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect height="24" rx="4" stroke="currentColor" stroke-width="1.75" width="24" x="2" y="2"></rect><text x="14" y="18.5" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle">SG</text></svg><span class="font-headline-sm text-headline-sm tracking-tight">Saurabh<span class="text-primary"> Gupta</span></span></a>
+<nav class="hidden md:flex items-center gap-space-lg" aria-label="Primary"><a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="about" href="#about">About</a><a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="projects" href="#projects">Projects</a><a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="expertise" href="#expertise">Expertise</a><a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="experience" href="#experience">Experience</a><a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="contact" href="#contact">Contact</a></nav>
+<div class="flex items-center gap-space-md">
+<a class="px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-colors" href="#resume">Resume</a>
+<a href="#about" class="hidden md:flex w-8 h-8 rounded-full bg-primary items-center justify-center overflow-hidden relative" aria-label="About me">
+<span class="font-label-sm text-label-sm text-on-primary font-medium" data-avatar-fallback>SG</span>
+<img src="https://avatars.githubusercontent.com/u/104382438?v=4" alt="" width="32" height="32" class="absolute inset-0 w-full h-full object-cover" data-avatar>
+</a>
+<button type="button" id="menu-btn" class="md:hidden w-9 h-9 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-surface-container-high" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+<span data-icon-open><svg class="icon w-[22px] h-[22px]" aria-hidden="true"><use href="#i-menu"/></svg></span><span data-icon-close class="hidden"><svg class="icon w-[22px] h-[22px]" aria-hidden="true"><use href="#i-close"/></svg></span>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/30">
+<nav class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-2" aria-label="Mobile"><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="top" href="#top">Home</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="about" href="#about">About</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="projects" href="#projects">Projects</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="expertise" href="#expertise">Expertise</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="experience" href="#experience">Experience</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="contact" href="#contact">Contact</a><a class="block py-3 border-b border-outline-variant/40 font-body-md text-body-md text-on-surface-variant hover:text-primary" data-nav="resume" href="#resume">Resume</a></nav>
+</div>
+</header>
+<main id="main" class="w-full pt-16 bg-surface"><section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin pt-16 pb-20 md:pt-24 md:pb-28" id="top">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<div class="lg:col-span-7 flex flex-col items-start min-w-0">
+<div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-container-high mb-8 shadow-sm">
+<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span>
+<span class="font-label-md text-label-md text-secondary">Available for data analytics opportunities</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-4">I turn complex data into faster, clearer business decisions.</h1>
+<p class="font-label-lg text-label-lg text-primary mb-6">Data Analyst &amp; Django Developer | Python, SQL, Power BI</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">From validated ETL pipelines and decision-ready dashboards to Django tools that reduce repetitive work, I build practical solutions around measurable business needs.</p>
+<div class="flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-lg text-label-lg transition-all duration-200 shadow-md hover:shadow-xl" href="#projects"><span>View Projects</span><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_downward"/></svg></a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-all duration-200 shadow-sm" href="#contact"><span>Contact Me</span><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_forward"/></svg></a>
+</div>
+</div>
+<div class="lg:col-span-5 w-full">
+<div class="bg-surface-container rounded-xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2"><svg class="icon w-[18px] h-[18px] text-primary" aria-hidden="true"><use href="#i-monitoring"/></svg><span class="font-label-md text-label-md text-on-surface-variant uppercase">Measured Impact</span></div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2.5 py-1 rounded">2026</span>
+</div>
+<div class="flex flex-col gap-5 mb-6" data-counters><div class="flex items-baseline justify-between gap-4 bg-surface-container-low p-4 rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">Records Modeled</span><span class="font-headline-md text-headline-md text-on-surface" data-count="268" data-suffix="K+">268K+</span></div><div class="flex items-baseline justify-between gap-4 bg-surface-container-low p-4 rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">Power BI Dashboards</span><span class="font-headline-md text-headline-md text-secondary" data-count="3" data-suffix="+">3+</span></div><div class="flex items-baseline justify-between gap-4 bg-surface-container-low p-4 rounded-lg"><span class="font-label-md text-label-md text-on-surface-variant">Faster Reporting</span><span class="font-headline-md text-headline-md text-primary" data-count="40" data-suffix="%">40%</span></div></div>
+<div class="bg-surface-container-lowest rounded-lg p-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-3 uppercase">Core technology stack</span>
+<div class="flex flex-wrap gap-2"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">SQL / MySQL</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Power BI</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Django</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">ETL</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Excel</span></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<section class="stats container fade-up">
-  {% for stat in stats %}
-    <div class="stat-card">
-      <h2>{{ stat.value }}</h2>
-      <p>{{ stat.label }}</p>
-    </div>
-  {% endfor %}
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="about" data-section data-nav="about">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="mb-12"><span class="font-label-md text-label-md text-primary uppercase block mb-2">01 / About Me</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface max-w-3xl">Building validated data pipelines and analytical Django solutions.</h2></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-4 bg-surface-container rounded-xl shadow-sm p-6 md:p-8 flex flex-col items-center text-center reveal">
+<div class="w-40 h-40 rounded-xl bg-surface-container-high overflow-hidden relative flex items-center justify-center mb-6">
+<span class="font-headline-md text-headline-md text-primary" data-avatar-fallback>SG</span>
+<img src="https://avatars.githubusercontent.com/u/104382438?v=4" alt="Saurabh Gupta profile photo" width="160" height="160" class="absolute inset-0 w-full h-full object-cover" data-avatar loading="lazy">
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Saurabh Gupta</p>
+<p class="font-label-md text-label-md text-secondary mt-2">Data Analyst | Django Developer</p>
+</div>
+<div class="lg:col-span-8 flex flex-col gap-5 reveal"><p class="font-body-md text-body-md text-on-surface-variant">I specialize in building data-driven web and analytical solutions using Python, SQL, MySQL, Django, Power BI, Tableau, Advanced Excel, and ETL workflows.</p><p class="font-body-md text-body-md text-on-surface-variant">As a Django Developer, I work on database-driven web applications, backend logic, structured data models, API-ready workflows, and scalable solutions that convert raw business data into reliable, actionable insights.</p><p class="font-body-md text-body-md text-on-surface-variant">As a Data Analyst, I focus on data cleaning, exploratory analysis, statistical analysis, predictive modeling, KPI reporting, and interactive dashboard development.</p>
+<div class="mt-4 bg-surface-container rounded-xl shadow-sm bg-surface-container-lowest p-6 md:p-8 border border-outline-variant/40">
+<span class="font-label-md text-label-md text-secondary uppercase block mb-2">Business-first analytics &amp; development</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Turn scattered data and manual reporting into decisions your team can trust.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">I combine Python and SQL to clean, validate, and model your data; Power BI and Excel to make performance visible; and Django to turn proven workflows into dependable internal tools. The goal is practical: less reporting friction, clearer risk signals, and a solution tied to an agreed business measure.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<section class="value-section container fade-up">
-  <div class="value-copy">
-    <p class="eyebrow">{{ content.value_eyebrow }}</p>
-    <h2>{{ content.value_title }}</h2>
-    <p>{{ content.value_description }}</p>
-  </div>
-  <div class="value-stack" aria-label="{{ content.value_stack_label }}">
-    <span>Python</span><span>SQL / MySQL</span><span>Power BI</span><span>Django</span><span>ETL</span><span>Excel</span>
-  </div>
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-20 md:py-28" id="services" data-section data-nav="about">
+<div class="mb-12"><span class="font-label-md text-label-md text-primary uppercase block mb-2">02 / What I Do</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Services</h2></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal"><div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-primary" aria-hidden="true"><use href="#i-dashboard"/></svg></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Business Intelligence</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Interactive dashboards and KPI reporting with Power BI, Tableau, Excel, and SQL.</p></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal"><div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-secondary" aria-hidden="true"><use href="#i-database"/></svg></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Data Analysis &amp; ETL</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Data cleaning, preprocessing, validation rules, and ETL workflows across multiple sources.</p></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal"><div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-primary" aria-hidden="true"><use href="#i-query_stats"/></svg></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Predictive Modeling</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Statistical analysis, hypothesis testing, risk scoring, and machine learning workflows.</p></div></div>
 </section>
-
-<section class="method-section container fade-up">
-  <div class="section-title">
-    <p>{{ content.method_eyebrow }}</p>
-    <h2>{{ content.method_title }}</h2>
-    <p class="section-intro">{{ content.method_intro }}</p>
-  </div>
-  <div class="method-grid">
-    {% for step in method_steps %}
-      <article class="method-step">
-        <span class="method-number">{{ step.number }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.body }}</p>
-      </article>
-    {% endfor %}
-  </div>
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="method" data-section data-nav="about">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+<div><span class="font-label-md text-label-md text-primary uppercase block mb-2">03 / How I solve problems</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface max-w-2xl">A clear path from business question to measurable outcome.</h2></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Every engagement starts with the decision to improve, then moves through validated data and a solution your team can actually use.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><article class="bg-surface-container rounded-xl shadow-sm p-6 reveal"><span class="font-label-lg text-label-lg text-secondary block mb-4">01</span><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Diagnose</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Align on the decision, bottleneck, or reporting gap behind the request.</p></article><article class="bg-surface-container rounded-xl shadow-sm p-6 reveal"><span class="font-label-lg text-label-lg text-secondary block mb-4">02</span><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Model</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Validate the data, define useful metrics, and design the right analytical or application workflow.</p></article><article class="bg-surface-container rounded-xl shadow-sm p-6 reveal"><span class="font-label-lg text-label-lg text-secondary block mb-4">03</span><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Deliver</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Build, test, and document a solution your team can use and maintain.</p></article><article class="bg-surface-container rounded-xl shadow-sm p-6 reveal"><span class="font-label-lg text-label-lg text-secondary block mb-4">04</span><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Measure</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Review the outcome against agreed indicators and refine where the evidence points.</p></article></div>
+</div>
 </section>
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-20 md:py-28" id="projects" data-section data-nav="projects">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+<div><span class="font-label-md text-label-md text-primary uppercase block mb-2">04 / Selected Work</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Projects From My Resume</h2></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Analytics and machine-learning projects from my resume, with the outcomes they delivered.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6"><article class="group bg-surface-container rounded-xl shadow-sm p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between reveal">
+<div>
+<div class="flex items-center justify-between gap-4 mb-5"><span class="font-label-md text-label-md text-primary bg-surface-container-high px-3 py-1 rounded">CREDIT RISK</span></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Credit Risk Analysis &amp; Scoring System</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Developed an end-to-end credit risk pipeline across 5 MySQL tables with logistic regression and 4+ engineered business features for automated risk-band scoring.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Implemented 10+ validation rules and a daemon-based workflow, reducing scoring errors by an estimated 30-40% with complete rejection logging and real-time database updates.</p>
+</div>
+<div>
+<details class="group/d mb-6 rounded-lg bg-surface-container-lowest"><summary class="cursor-pointer list-none flex items-center justify-between gap-3 p-4 font-label-md text-label-md text-primary select-none"><span>Case study details</span><span class="transition-transform group-open/d:rotate-180"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_downward"/></svg></span></summary><dl class="px-4 pb-4 flex flex-col gap-4"><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Challenge</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">Loan risk decisions depended on fragmented data and manual review, making scoring less consistent and rejection handling difficult to audit.</dd></div><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Technical solution</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">Built an end-to-end Python and MySQL pipeline across five tables, engineered more than four business features, and applied logistic regression with automated risk-band scoring. Added validation rules and a daemon-based workflow for real-time database updates.</dd></div><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Business impact</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">The resume reports an estimated 30-40% reduction in scoring errors and complete rejection logging, improving consistency and auditability of loan assessments.</dd></div></dl></details>
+<div class="bg-surface-container-low rounded-lg p-4 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-1"><span class="font-label-sm text-label-sm text-on-surface-variant">HIGHLIGHTED IMPACT</span><span class="font-headline-sm text-headline-sm text-secondary">Est. 30-40% Fewer Errors</span></div>
+<div class="flex flex-wrap gap-2"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">MySQL</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">scikit-learn</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Power BI</span></div>
+</div>
+</article><article class="group bg-surface-container rounded-xl shadow-sm p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between reveal">
+<div>
+<div class="flex items-center justify-between gap-4 mb-5"><span class="font-label-md text-label-md text-secondary bg-surface-container-high px-3 py-1 rounded">SPORTS ANALYTICS</span></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Sports Analytics: Olympic Games Analysis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Built a normalized Olympic analytics warehouse covering 120 years of data from 1896 to 2016 across 11 relational tables.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Consolidated 268K+ records, 128K+ athletes, 66 sports, and 757 events, then created 17 advanced SQL queries and an interactive Power BI dashboard for medal and participation insights.</p>
+</div>
+<div>
+<details class="group/d mb-6 rounded-lg bg-surface-container-lowest"><summary class="cursor-pointer list-none flex items-center justify-between gap-3 p-4 font-label-md text-label-md text-primary select-none"><span>Case study details</span><span class="transition-transform group-open/d:rotate-180"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_downward"/></svg></span></summary><dl class="px-4 pb-4 flex flex-col gap-4"><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Challenge</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">More than a century of Olympic results needed a consistent structure for comparing participation, sports, events, and medal trends across eras.</dd></div><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Technical solution</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">Designed a normalized relational warehouse spanning 11 tables, consolidated the historical dataset, wrote 17 advanced SQL analytics queries, and built an interactive Power BI dashboard for multidimensional exploration.</dd></div><div><dt class="font-label-sm text-label-sm text-primary uppercase mb-1">Business impact</dt><dd class="font-body-sm text-body-sm text-on-surface-variant">Enabled analysis across 268K+ records, 128K+ athletes, 66 sports, and 757 events, surfacing demographic outliers and medal trends across 120 years of data.</dd></div></dl></details>
+<div class="bg-surface-container-low rounded-lg p-4 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-1"><span class="font-label-sm text-label-sm text-on-surface-variant">HIGHLIGHTED IMPACT</span><span class="font-headline-sm text-headline-sm text-primary">268K+ Records Modeled</span></div>
+<div class="flex flex-wrap gap-2"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">MySQL</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">SQL</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Power BI</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+</div>
+</article><article class="group bg-surface-container rounded-xl shadow-sm p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between reveal">
+<div>
+<div class="flex items-center justify-between gap-4 mb-5"><span class="font-label-md text-label-md text-primary bg-surface-container-high px-3 py-1 rounded">BI DASHBOARD</span></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Sales Performance Analytics Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Built an analytics solution processing 100,000+ transaction records to visualize sales trends, regional performance, and revenue forecasts.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Used Python for preprocessing and SQL optimization to improve query performance by 30%.</p>
+</div>
+<div>
 
-<section class="services container fade-up">
-  <div class="section-title">
-    <p>{{ content.home_services_eyebrow }}</p>
-    <h2>{{ content.home_services_title }}</h2>
-  </div>
+<div class="bg-surface-container-low rounded-lg p-4 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-1"><span class="font-label-sm text-label-sm text-on-surface-variant">HIGHLIGHTED IMPACT</span><span class="font-headline-sm text-headline-sm text-secondary">30% Faster SQL Queries</span></div>
+<div class="flex flex-wrap gap-2"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Power BI</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">SQL</span></div>
+</div>
+</article><article class="group bg-surface-container rounded-xl shadow-sm p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between reveal">
+<div>
+<div class="flex items-center justify-between gap-4 mb-5"><span class="font-label-md text-label-md text-secondary bg-surface-container-high px-3 py-1 rounded">PREDICTIVE MODELING</span></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Customer Turnover Prediction Model</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Developed a predictive model using logistic regression and decision trees to identify at-risk customers with 82% accuracy.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Performed feature engineering and hypothesis testing to find the key factors influencing customer turnover.</p>
+</div>
+<div>
 
-  <div class="service-grid">
-    {% for service in services %}
-      <div class="service-card">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description|linebreaksbr }}</p>
-      </div>
-    {% endfor %}
-  </div>
+<div class="bg-surface-container-low rounded-lg p-4 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-1"><span class="font-label-sm text-label-sm text-on-surface-variant">HIGHLIGHTED IMPACT</span><span class="font-headline-sm text-headline-sm text-primary">82% Prediction Accuracy</span></div>
+<div class="flex flex-wrap gap-2"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Machine Learning</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Statistical Analysis</span></div>
+</div>
+</article></div>
 </section>
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="repositories" data-section data-nav="projects">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+<div><span class="font-label-md text-label-md text-primary uppercase block mb-2">05 / GitHub</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Open Source &amp; Repositories</h2></div>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-all duration-200 shadow-sm self-start md:self-auto" href="https://github.com/dragonwolf1o1" target="_blank" rel="noopener noreferrer"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>github.com/dragonwolf1o1</span></a>
+</div>
+<div class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter repositories by language" id="repo-filters"><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="all" aria-pressed="true">All <span class="opacity-60">24</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="python" aria-pressed="false">Python <span class="opacity-60">15</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="css" aria-pressed="false">CSS <span class="opacity-60">11</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="javascript" aria-pressed="false">JavaScript <span class="opacity-60">8</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="html" aria-pressed="false">HTML <span class="opacity-60">7</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="php" aria-pressed="false">PHP <span class="opacity-60">4</span></button><button type="button" class="filter-chip font-label-md text-label-md px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors" data-filter="fork" aria-pressed="false">Forks <span class="opacity-60">4</span></button></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="repo-grid" data-limit="9"><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Portfolio" target="_blank" rel="noopener noreferrer" data-tags="">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Portfolio</h3>
 
-<section class="testimonials-section container fade-up">
-  <div class="section-title">
-    <p>{{ content.testimonials_eyebrow }}</p>
-    <h2>{{ content.testimonials_title }}</h2>
-    <p class="section-intro">{{ content.testimonials_intro }}</p>
-  </div>
-  {% if testimonials %}
-    <div class="testimonial-grid">
-      {% for testimonial in testimonials %}
-        <figure class="testimonial-card">
-          <blockquote>{{ testimonial.quote }}</blockquote>
-          <figcaption>
-            <strong>{{ testimonial.client_name }}</strong>
-            <span>{% if testimonial.client_role %}{{ testimonial.client_role }}{% endif %}{% if testimonial.company %}{% if testimonial.client_role %}, {% endif %}{{ testimonial.company }}{% endif %}</span>
-          </figcaption>
-        </figure>
-      {% endfor %}
-    </div>
-  {% else %}
-    <div class="testimonial-empty">
-      <p>{{ content.testimonials_empty }}</p>
-      <a class="text-link" href="{% url 'portfolio:contact' %}">{{ content.testimonials_cta }} <span aria-hidden="true">→</span></a>
-    </div>
-  {% endif %}
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Movie_Rental_Analytics" target="_blank" rel="noopener noreferrer" data-tags="">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Movie Rental Analytics</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Pocket_Music" target="_blank" rel="noopener noreferrer" data-tags="html python css javascript">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Pocket Music</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Credit-Risk-Analysis-Scoring-System" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Credit Risk Analysis Scoring System</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Safe-Nest-Security-API" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Safe Nest Security Api</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/E-Commerce-Site" target="_blank" rel="noopener noreferrer" data-tags="html css javascript">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">E Commerce Site</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>1</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/BIPE_Library_Managment_System" target="_blank" rel="noopener noreferrer" data-tags="php css javascript fork">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">FORK</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Bipe Library Managment System</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">PHP</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Library-Management-System_Sakshi" target="_blank" rel="noopener noreferrer" data-tags="php css javascript fork">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">FORK</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Library Management System Sakshi</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">PHP</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Sport-Analytics" target="_blank" rel="noopener noreferrer" data-tags="">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Sport Analytics</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Learn-Q" target="_blank" rel="noopener noreferrer" data-tags="php css javascript powershell batchfile fork">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">FORK</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Learn Q</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">PHP</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">PowerShell</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Batchfile</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Adult_Census_Income_Analysis_Power_BI_Dashboard" target="_blank" rel="noopener noreferrer" data-tags="">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Adult Census Income Analysis Power Bi Dashboard</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Social_Media_Plateform" target="_blank" rel="noopener noreferrer" data-tags="python html css javascript">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Social Media Plateform</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/FlexStream" target="_blank" rel="noopener noreferrer" data-tags="html python css javascript">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Flexstream</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Authentication-System" target="_blank" rel="noopener noreferrer" data-tags="python css html">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Authentication System</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Hash-Finder" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Hash Finder</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Customer_Details_Managment_System" target="_blank" rel="noopener noreferrer" data-tags="css python html">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Customer Details Managment System</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Blog-Website-Django-Framework" target="_blank" rel="noopener noreferrer" data-tags="python css html">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Blog Website Django Framework</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">HTML</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Web-Bassed-Chat-Application" target="_blank" rel="noopener noreferrer" data-tags="php css javascript hack">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Web Bassed Chat Application</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">PHP</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">CSS</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">JavaScript</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Hack</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Password-Strength-Checker" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Password Strength Checker</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>1</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Hash-Verifier" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Hash Verifier</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Banking-Managment-System" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Banking Managment System</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>1</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Text-Encryption-Tool" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Text Encryption Tool</h3>
+
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/Internal-Network-Jammer-using-Python" target="_blank" rel="noopener noreferrer" data-tags="python">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">REPOSITORY</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Internal Network Jammer Using Python</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">Work only in Linux OSs</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>1</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a><a class="repo-card group bg-surface-container rounded-xl shadow-sm p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between gap-6 border border-transparent hover:border-primary/30" href="https://github.com/dragonwolf1o1/sparrow-wifi" target="_blank" rel="noopener noreferrer" data-tags="python shell fork">
+<div>
+<div class="flex items-center justify-between gap-3 mb-4"><span class="font-label-sm text-label-sm text-on-surface-variant">FORK</span><svg class="icon w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true"><use href="#i-arrow_outward"/></svg></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Sparrow Wifi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">Next-Gen GUI-based WiFi and Bluetooth Analyzer for Linux</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-2 min-h-[1.75rem]"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Python</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded ">Shell</span></div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/40 pt-4"><span class="inline-flex items-center gap-1" title="Stars"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-star"/></svg>0</span><span class="inline-flex items-center gap-1" title="Forks"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-call_split"/></svg>0</span><span class="ml-auto text-primary">View on GitHub</span></div>
+</div>
+</a></div>
+<p class="hidden font-body-sm text-body-sm text-on-surface-variant mt-6" id="repo-empty">No repositories match this filter.</p>
+<div class="mt-10 flex justify-center"><button type="button" id="repo-more" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-all duration-200 shadow-sm"><span id="repo-more-label">Show all 24 repositories</span><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_downward"/></svg></button></div>
+</div>
 </section>
-{% endblock %}
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-20 md:py-28" id="expertise" data-section data-nav="expertise">
+<div class="mb-12"><span class="font-label-md text-label-md text-primary uppercase block mb-2">06 / Technical Skills</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Tools I Work With</h2></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-primary" aria-hidden="true"><use href="#i-terminal"/></svg></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Programming</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Python &amp; SQL</h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Pandas</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>NumPy</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Matplotlib</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Seaborn</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>MySQL</span></li></ul></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-secondary" aria-hidden="true"><use href="#i-bar_chart"/></svg></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Visualization</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">BI Dashboards</h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Power BI</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Tableau</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Advanced Microsoft Excel</span></li></ul></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-primary" aria-hidden="true"><use href="#i-query_stats"/></svg></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Analytics</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Statistics &amp; Modeling</h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Hypothesis testing</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Predictive modeling</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Data mining</span></li></ul></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 reveal">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center mb-6"><svg class="icon w-[22px] h-[22px] text-secondary" aria-hidden="true"><use href="#i-account_tree"/></svg></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Workflow</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Tools &amp; Delivery</h3>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Git</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Linux</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Jupyter Notebook</span></li><li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>ETL processes</span></li></ul></div></div>
+<div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 mt-6 reveal">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-6">Skill proficiency</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6" id="skill-bars"><div><div class="flex items-baseline justify-between mb-2"><span class="font-body-sm text-body-sm text-on-surface">Python, Pandas, NumPy</span><span class="font-label-md text-label-md text-secondary">92%</span></div><div class="h-2 rounded-full bg-surface-container-high overflow-hidden" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Python, Pandas, NumPy"><div class="skill-fill h-full rounded-full bg-secondary" data-width="92" style="width:92%"></div></div></div><div><div class="flex items-baseline justify-between mb-2"><span class="font-body-sm text-body-sm text-on-surface">SQL &amp; MySQL</span><span class="font-label-md text-label-md text-primary">90%</span></div><div class="h-2 rounded-full bg-surface-container-high overflow-hidden" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="SQL &amp; MySQL"><div class="skill-fill h-full rounded-full bg-primary" data-width="90" style="width:90%"></div></div></div><div><div class="flex items-baseline justify-between mb-2"><span class="font-body-sm text-body-sm text-on-surface">Power BI, Tableau &amp; Excel</span><span class="font-label-md text-label-md text-secondary">88%</span></div><div class="h-2 rounded-full bg-surface-container-high overflow-hidden" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI, Tableau &amp; Excel"><div class="skill-fill h-full rounded-full bg-secondary" data-width="88" style="width:88%"></div></div></div><div><div class="flex items-baseline justify-between mb-2"><span class="font-body-sm text-body-sm text-on-surface">Statistics &amp; Predictive Modeling</span><span class="font-label-md text-label-md text-primary">84%</span></div><div class="h-2 rounded-full bg-surface-container-high overflow-hidden" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" aria-label="Statistics &amp; Predictive Modeling"><div class="skill-fill h-full rounded-full bg-primary" data-width="84" style="width:84%"></div></div></div></div>
+</div>
+</section>
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="experience" data-section data-nav="experience">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="mb-12"><span class="font-label-md text-label-md text-primary uppercase block mb-2">07 / Experience</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Professional Background</h2></div>
+<div class="flex flex-col gap-4"><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start reveal">
+<div class="md:col-span-3"><span class="font-label-md text-label-md text-secondary uppercase">June 2022 — August 2022</span></div>
+<div class="md:col-span-4"><h3 class="font-headline-sm text-headline-sm text-on-surface">Data Analyst Training</h3><p class="font-body-sm text-body-sm text-on-surface-variant">APTRON, Lucknow, Uttar Pradesh, India</p></div>
+<div class="md:col-span-5"><ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2"></span><span>Analyzed large datasets using Python and SQL to identify trends and improve data accuracy by 25% through cleaning and preprocessing.</span></li><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2"></span><span>Developed 5+ interactive Power BI dashboards for business metrics, reducing report generation time by 40%.</span></li><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2"></span><span>Performed EDA on 50,000+ customer records to support marketing strategy and customer segmentation.</span></li><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2"></span><span>Built automated Excel reports with advanced formulas and VBA for streamlined weekly reporting.</span></li><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2"></span><span>Implemented ETL workflows to maintain data integrity across business intelligence platforms.</span></li></ul></div></div></div>
+<div class="mt-16 mb-12"><span class="font-label-md text-label-md text-secondary uppercase block mb-2">Education &amp; Certifications</span><h3 class="font-headline-md text-headline-md text-on-surface">Foundation</h3></div>
+<div class="flex flex-col gap-4"><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start reveal">
+<div class="md:col-span-3"><span class="font-label-md text-label-md text-on-surface-variant uppercase">August 2019 — June 2023</span></div>
+<div class="md:col-span-4"><h3 class="font-headline-sm text-headline-sm text-on-surface">Bachelor of Technology in Computer Science</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Babu Banarsi Das University, Lucknow, Uttar Pradesh, India</p></div>
+<div class="md:col-span-5"><p class="font-body-sm text-body-sm text-on-surface-variant">Relevant coursework: Data Structures &amp; Algorithms, DBMS, Statistics for Data Science, Machine Learning, Computer Networks.</p></div></div><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start reveal">
+<div class="md:col-span-3"><span class="font-label-md text-label-md text-on-surface-variant uppercase">Certifications</span></div>
+<div class="md:col-span-4"><h3 class="font-headline-sm text-headline-sm text-on-surface">Professional Learning</h3></div>
+<div class="md:col-span-5"><ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant"><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2"></span><span>Python Programming: Basic and Advanced Certification</span></li><li class="flex gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2"></span><span>Computer Networking Fundamentals: Network Architecture and Protocols</span></li></ul></div></div></div>
+</div>
+</section>
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-20 md:py-28" id="resume" data-section data-nav="experience">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<div class="lg:col-span-7 flex flex-col items-start min-w-0">
+<span class="font-label-md text-label-md text-primary uppercase block mb-2">08 / Data Analyst Resume</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-6">A practical analyst profile built around clean data, useful dashboards, and business-ready reporting.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">Results-driven Data Analyst with expertise in transforming complex datasets into actionable business insights. Proficient in Python, SQL, Power BI, and Advanced Excel with strong foundations in statistical analysis and data visualization. Experienced in developing ETL pipelines, creating interactive dashboards, and implementing data-driven solutions.</p>
+<div class="flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-lg text-label-lg transition-all duration-200 shadow-md hover:shadow-xl" href="{% static 'portfolio-site/assets/files/Saurabh_Gupta_Resume.pdf' %}" download target="_blank" rel="noopener noreferrer"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-download"/></svg><span>Download Resume</span></a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-all duration-200 shadow-sm" href="#contact"><span>Contact Me</span><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_forward"/></svg></a>
+</div></div>
+<div class="lg:col-span-5 w-full"><div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 shadow-xl reveal">
+<div class="flex items-center justify-between mb-6"><div class="flex items-center gap-2"><svg class="icon w-[18px] h-[18px] text-primary" aria-hidden="true"><use href="#i-description"/></svg><span class="font-label-md text-label-md text-on-surface-variant uppercase">Resume Highlights</span></div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2.5 py-1 rounded uppercase">Measured Impact</span></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Resume Highlights"><div class="bg-surface-container-low p-4 rounded-lg"><span class="font-headline-md text-headline-md text-secondary block mb-1">25%</span><span class="font-label-sm text-label-sm text-on-surface-variant block">Data accuracy improvement through cleaning and preprocessing</span></div><div class="bg-surface-container-low p-4 rounded-lg"><span class="font-headline-md text-headline-md text-primary block mb-1">5+</span><span class="font-label-sm text-label-sm text-on-surface-variant block">Interactive Power BI dashboards for business metrics</span></div><div class="bg-surface-container-low p-4 rounded-lg"><span class="font-headline-md text-headline-md text-secondary block mb-1">40%</span><span class="font-label-sm text-label-sm text-on-surface-variant block">Reduction in report generation time</span></div><div class="bg-surface-container-low p-4 rounded-lg"><span class="font-headline-md text-headline-md text-primary block mb-1">268K+</span><span class="font-label-sm text-label-sm text-on-surface-variant block">Olympic records modeled for analytics</span></div></div>
+</div></div>
+</div>
+</section>
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="feedback" data-section data-nav="contact">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+<div><span class="font-label-md text-label-md text-primary uppercase block mb-2">09 / Client feedback</span><h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface ">Trust is built through useful outcomes.</h2></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Feedback from collaborators will be published here with permission.</p></div>
+<div class="bg-surface-container rounded-xl shadow-sm p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 border border-dashed border-outline-variant">
+<div class="flex items-start gap-4"><svg class="icon w-8 h-8 text-primary shrink-0" aria-hidden="true"><use href="#i-format_quote"/></svg><p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Client testimonials are being collected. For now, explore the documented project outcomes or start a conversation about your challenge.</p></div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-on-surface transition-colors shrink-0" href="#contact">Discuss a project<svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-arrow_forward"/></svg></a></div>
+</div>
+</section>
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin py-24 md:py-32" id="contact" data-section data-nav="contact">
+<div class="bg-surface-container rounded-xl shadow-sm p-8 md:p-16 shadow-xl reveal">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+<div class="max-w-xl"><span class="font-label-md text-label-md text-secondary uppercase block mb-2">10 / Contact</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-4">Let&#x27;s Connect</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Reach out for data analysis, BI dashboards, SQL reporting, ETL workflows, or analytics-focused project collaboration.</p></div>
+<div class="flex flex-wrap items-center gap-4 shrink-0">
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-lg text-label-lg transition-all duration-200 shadow-md max-w-full" href="mailto:saurabhguptagzpofficial@gmail.com"><svg class="icon w-5 h-5 shrink-0" aria-hidden="true"><use href="#i-mail"/></svg><span class="break-all">saurabhguptagzpofficial@gmail.com</span></a>
+<button class="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-lg text-label-lg transition-all duration-200" id="copy-email-btn" type="button" data-email="saurabhguptagzpofficial@gmail.com"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-content_copy"/></svg><span id="copy-email-label" aria-live="polite">Copy</span></button>
+</div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 pt-12 border-t border-outline-variant/40"><div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-4"><span class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-call"/></svg></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Phone</span><a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors break-all" href="tel:+916387870113">+91 6387870113</a></div></div><div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-4"><span class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-mail"/></svg></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Email</span><a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors break-all" href="mailto:saurabhguptagzpofficial@gmail.com">saurabhguptagzpofficial@gmail.com</a></div></div><div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-4"><span class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-work"/></svg></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">LinkedIn</span><a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors break-all" href="https://www.linkedin.com/in/saurabhguptaofficial" target="_blank" rel="noopener noreferrer">linkedin.com/in/saurabhguptaofficial</a></div></div><div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-4"><span class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-location_on"/></svg></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">Address</span><p class="font-body-md text-body-md text-on-surface">Varanasi, Uttar Pradesh, India</p></div></div><div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-4"><span class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-code"/></svg></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-1">GitHub</span><a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors break-all" href="https://github.com/dragonwolf1o1" target="_blank" rel="noopener noreferrer">github.com/dragonwolf1o1</a></div></div></div>
+</div>
+</section>
+</main>
+<footer class="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/30">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2026 Saurabh Gupta. All Rights Reserved.</p>
+<div class="flex items-center gap-space-lg">
+<a class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/dragonwolf1o1" target="_blank" rel="noopener noreferrer"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a>
+<a class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/saurabhguptaofficial" target="_blank" rel="noopener noreferrer"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-work"/></svg><span>LinkedIn</span></a>
+<a class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="mailto:saurabhguptagzpofficial@gmail.com"><svg class="icon w-[18px] h-[18px]" aria-hidden="true"><use href="#i-mail"/></svg><span>Email</span></a>
+</div></div></footer>
+</body>
+</html>
