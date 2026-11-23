@@ -1,0 +1,47 @@
+<section class="w-full bg-surface-container-low py-20 md:py-28" id="architecture" data-section>
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin">
+<div class="max-w-3xl mb-10 md:mb-14">
+<span class="font-label-md text-label-md text-primary uppercase block mb-2">05 / System Design</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-4">Technical Architecture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A server-rendered Django application separates request handling, managed portfolio content, and static delivery so each part has a clear role.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<article class="bg-surface-container rounded-xl shadow-sm p-6 md:p-7 border border-outline-variant/40">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-5">01 / Request</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Visitor &amp; Vercel</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A browser request reaches the Vercel deployment, which invokes the Django WSGI application for the requested page.</p>
+</article>
+<article class="bg-surface-container rounded-xl shadow-sm p-6 md:p-7 border border-outline-variant/40">
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-5">02 / Application</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Django routing &amp; rendering</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">URL patterns dispatch to views. Views load the needed content, and Django templates render the response as server-side HTML.</p>
+</article>
+<article class="bg-surface-container rounded-xl shadow-sm p-6 md:p-7 border border-outline-variant/40">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-5">03 / Content</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Admin &amp; database</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Authorized edits in Django Admin update portfolio models. Production uses MySQL through <code class="font-mono text-primary">DATABASE_URL</code>; local development can use SQLite.</p>
+</article>
+<article class="bg-surface-container rounded-xl shadow-sm p-6 md:p-7 border border-outline-variant/40">
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-5">04 / Delivery</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Static assets</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The deployment build applies Django migrations and runs <code class="font-mono text-primary">collectstatic</code>. Vercel serves the collected CSS, JavaScript, fonts, and resume file.</p>
+</article>
+</div>
+
+<div class="mt-8 md:mt-10 bg-surface-container rounded-xl shadow-sm p-6 md:p-8 border border-outline-variant/40">
+<div class="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-4">
+<div class="lg:w-1/4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block mb-2">Content data flow</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">From admin edit to page</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 flex-1">
+<div class="bg-surface-container-low rounded-lg p-4"><span class="font-label-sm text-label-sm text-primary block mb-1">A</span><p class="font-body-sm text-body-sm text-on-surface">Admin edits a content record</p></div>
+<div class="bg-surface-container-low rounded-lg p-4"><span class="font-label-sm text-label-sm text-secondary block mb-1">B</span><p class="font-body-sm text-body-sm text-on-surface">Django saves it to the database</p></div>
+<div class="bg-surface-container-low rounded-lg p-4"><span class="font-label-sm text-label-sm text-primary block mb-1">C</span><p class="font-body-sm text-body-sm text-on-surface">A view loads data for the request</p></div>
+<div class="bg-surface-container-low rounded-lg p-4"><span class="font-label-sm text-label-sm text-secondary block mb-1">D</span><p class="font-body-sm text-body-sm text-on-surface">A template returns the updated page</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
