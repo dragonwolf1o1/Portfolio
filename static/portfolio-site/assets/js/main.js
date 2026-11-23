@@ -110,32 +110,4 @@
       }
     });
   }
-
-  /* ---- Repository filter + show-more ---- */
-  var grid = $("#repo-grid");
-  if (grid) {
-    var cards = $$(".repo-card", grid), limit = parseInt(grid.getAttribute("data-limit"), 10) || 9;
-    var chips = $$("[data-filter]", $("#repo-filters")), more = $("#repo-more"), moreLabel = $("#repo-more-label"), empty = $("#repo-empty");
-    var filter = "all", expanded = false;
-    function render() {
-      var matched = cards.filter(function (c) { return filter === "all" || c.getAttribute("data-tags").split(" ").indexOf(filter) !== -1; });
-      cards.forEach(function (c) { c.classList.add("hidden"); });
-      matched.forEach(function (c, i) { c.classList.toggle("hidden", !expanded && i >= limit); });
-      empty.classList.toggle("hidden", matched.length > 0);
-      var hiddenCount = matched.length - limit;
-      more.parentElement.classList.toggle("hidden", matched.length <= limit);
-      moreLabel.textContent = expanded ? "Show fewer" : "Show all " + matched.length + " repositories";
-      more.querySelector("svg").style.transform = expanded ? "rotate(180deg)" : "";
-      void hiddenCount;
-    }
-    chips.forEach(function (c) {
-      c.addEventListener("click", function () {
-        filter = c.getAttribute("data-filter");
-        chips.forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); });
-        render();
-      });
-    });
-    more.addEventListener("click", function () { expanded = !expanded; render(); });
-    render();
-  }
 })();

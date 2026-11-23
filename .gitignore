@@ -5,6 +5,8 @@
 .vercel/
 .venv/
 .vscode/
+/portfolio-site/
+/*.zip
 __pycache__/
 *.py[cod]
 db.sqlite3
