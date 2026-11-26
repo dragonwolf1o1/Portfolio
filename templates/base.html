@@ -22,6 +22,7 @@
         <li><a href="{% url 'portfolio:resume' %}" class="{% if request.resolver_match.url_name == 'resume' %}active{% endif %}">{{ content.nav_resume }}</a></li>
         <li><a href="{% url 'portfolio:projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">{{ content.nav_projects }}</a></li>
         <li><a href="{% url 'portfolio:architecture' %}" class="{% if request.resolver_match.url_name == 'architecture' %}active{% endif %}">Architecture</a></li>
+        <li><a href="{% url 'portfolio:home' %}#profiles">Profiles</a></li>
         <li><a href="{% url 'portfolio:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{{ content.nav_contact }}</a></li>
       </ul>
 

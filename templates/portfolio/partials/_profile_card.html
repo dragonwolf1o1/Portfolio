@@ -1,0 +1,4 @@
+{% comment %}Single profile card. Args: platform, kind, handle, url, icon (terminal|leaderboard|data_object|code|work).{% endcomment %}<a class="pf-card" href="{{ url }}" target="_blank" rel="noopener noreferrer">
+<div class="pf-card__top"><span class="pf-card__icon" aria-hidden="true"><svg><use href="#pf-i-{{ icon|default:'code' }}"/></svg></span><span class="pf-card__out" aria-hidden="true"><svg><use href="#pf-i-arrow"/></svg></span></div>
+<div><span class="pf-card__kind">{{ kind }}</span><h4 class="pf-card__name">{{ platform }}</h4><span class="pf-card__handle">@{{ handle }}</span></div>
+<span class="pf-card__cta">View {{ platform }} profile<span class="pf-sr"> (opens in a new tab)</span></span></a>

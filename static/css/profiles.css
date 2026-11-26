@@ -1,0 +1,70 @@
+/* =============================================================================
+   "Find me online" / Profiles section — Obsidian Telemetry dark design
+   Standalone, scoped under .pf, no framework dependency.
+   Retheme by overriding the --pf-* variables on .pf.
+   ============================================================================= */
+.pf {
+  --pf-bg: #0f131c;
+  --pf-card: #1c2028;
+  --pf-card-high: #262a33;
+  --pf-lowest: #0a0e16;
+  --pf-line: #3e4850;
+  --pf-text: #dfe2ee;
+  --pf-muted: #bec8d2;
+  --pf-primary: #89ceff;
+  --pf-secondary: #4fdbc8;
+  --pf-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --pf-font-head: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --pf-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  background: var(--pf-bg);
+  color: var(--pf-muted);
+  font-family: var(--pf-font);
+  line-height: 1.6;
+  padding: 96px 0;
+  border-top: 1px solid rgba(62, 72, 80, .3);
+  scroll-margin-top: 64px;
+}
+.pf *, .pf *::before, .pf *::after { box-sizing: border-box; }
+:where(.pf) :where(h2, h3, h4, p, ul) { margin: 0; }
+:where(.pf) ul { padding: 0; list-style: none; }
+.pf__wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.pf :focus-visible { outline: 2px solid var(--pf-primary); outline-offset: 3px; }
+
+.pf__head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+@media (min-width: 768px) { .pf__head { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+.pf__eyebrow { display: block; font: 600 12px/1 var(--pf-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--pf-primary); margin-bottom: 14px; }
+.pf__title { font: 700 clamp(28px, 4vw, 40px)/1.15 var(--pf-font-head); color: var(--pf-text); letter-spacing: -.01em; }
+.pf__intro { font-size: 14.5px; max-width: 440px; color: var(--pf-muted); }
+
+.pf__group + .pf__group { margin-top: 40px; }
+.pf__label { font: 500 12px/1 var(--pf-font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--pf-muted); margin-bottom: 16px; }
+.pf__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+@media (min-width: 768px) { .pf__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.pf-card {
+  --pf-accent: var(--pf-secondary);
+  display: flex; flex-direction: column; gap: 20px; min-width: 0;
+  padding: 24px; border-radius: 12px; text-decoration: none;
+  background: var(--pf-card); border: 1px solid transparent;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.pf__grid > li:nth-child(even) .pf-card { --pf-accent: var(--pf-primary); }
+.pf__grid > li { display: flex; }
+.pf__grid > li > .pf-card { flex: 1; }
+.pf-card:hover { background: var(--pf-card-high); border-color: rgba(137, 206, 255, .5); transform: translateY(-2px); }
+.pf-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.pf-card__icon { width: 44px; height: 44px; border-radius: 8px; display: grid; place-items: center; background: var(--pf-card-high); color: var(--pf-accent); transition: background .15s; }
+.pf-card:hover .pf-card__icon { background: var(--pf-lowest); }
+.pf-card__icon svg { width: 24px; height: 24px; }
+.pf-card__out { color: var(--pf-muted); transition: color .15s; }
+.pf-card__out svg { width: 20px; height: 20px; display: block; }
+.pf-card:hover .pf-card__out { color: var(--pf-primary); }
+.pf-card__kind { display: block; font: 500 11px/1.3 var(--pf-font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--pf-muted); margin-bottom: 6px; }
+.pf-card__name { font: 700 20px/1.3 var(--pf-font-head); color: var(--pf-text); margin-bottom: 4px; }
+.pf-card__handle { font: 500 13px/1.4 var(--pf-font-mono); color: var(--pf-accent); overflow-wrap: anywhere; }
+.pf-card__cta { margin-top: auto; font: 600 13px/1.2 var(--pf-font-mono); color: var(--pf-primary); }
+.pf .pf-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 640px) { .pf { padding: 64px 0; } .pf__wrap { padding: 0 16px; } }
+@media (prefers-reduced-motion: reduce) { .pf-card { transition: none; } .pf-card:hover { transform: none; } }
