@@ -103,6 +103,10 @@ def contact(request):
     )
 
 
+def architecture(request):
+    return render(request, "portfolio/architecture.html")
+
+
 def error_404(request, exception=None):
     return render(request, "errors/404.html", status=404)
 

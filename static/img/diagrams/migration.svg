@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="arch-svg" viewBox="0 0 1248 196" width="1248" height="196" role="img" aria-labelledby="arch-migration-t arch-migration-d"><title id="arch-migration-t">Schema change to production migration flow</title><desc id="arch-migration-d">Edit models, run makemigrations, test locally, commit and push; the Vercel build runs migrate --noinput against the hosted database and records applied migrations.</desc><style>
+.arch-svg{font-family:Inter,system-ui,sans-serif}
+.arch-svg .bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .n{fill:var(--arch-card,#1c2028);stroke:var(--arch-line,#3e4850);stroke-width:1.25}
+.arch-svg .n--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .n--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .n--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .n--ph{stroke:var(--arch-tertiary,#ffb86e);stroke-dasharray:5 4}
+.arch-svg .t1{font:700 13px "Plus Jakarta Sans",Inter,system-ui,sans-serif;fill:var(--arch-text,#dfe2ee)}
+.arch-svg .t2{font:400 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-muted,#bec8d2)}
+.arch-svg .t3{font:500 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-dim,#9aa5af)}
+.arch-svg .t4{font:700 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff);letter-spacing:.06em}
+.arch-svg .ln{fill:none;stroke:var(--arch-dim,#9aa5af);stroke-width:1.5}
+.arch-svg .ln--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .ln--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .ln--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .ln--d{stroke-dasharray:6 5}
+.arch-svg .ah{fill:var(--arch-dim,#9aa5af)}
+.arch-svg .ah--a{fill:var(--arch-primary,#89ceff)}
+.arch-svg .lbl-bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .dot{fill:var(--arch-primary,#89ceff)}
+.arch-svg .er-h{fill:var(--arch-card-high,#262a33)}
+.arch-svg .er-line{stroke:var(--arch-line,#3e4850);stroke-width:1}
+.arch-svg .k-pk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e)}
+.arch-svg .k-fk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff)}
+.arch-svg .band{fill:rgba(137,206,255,.05);stroke:var(--arch-line,#3e4850);stroke-dasharray:3 4}
+.arch-svg .ph-frame{fill:none;stroke:var(--arch-tertiary,#ffb86e);stroke-width:1.25;stroke-dasharray:7 5;opacity:.75}
+.arch-svg .ph-tag{font:700 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e);letter-spacing:.08em}
+</style><defs><marker id="arch-migration-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker><marker id="arch-migration-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah ah--a"/></marker></defs><rect class="bg" x="0" y="0" width="1248" height="196" rx="10"/><rect x="24.0" y="52.0" width="150" height="107.5" rx="7" class="n"/><text x="36.0" y="78.0" class="t1">Edit models.py</text><text x="36.0" y="95.0" class="t2">add or alter a field</text><rect x="234.0" y="52.0" width="150" height="107.5" rx="7" class="n n--a"/><text x="246.0" y="78.0" class="t1">makemigrations</text><text x="246.0" y="95.0" class="t2">portfolio/migrations/</text><text x="246.0" y="109.5" class="t2">00NN_description.py</text><rect x="444.0" y="52.0" width="150" height="107.5" rx="7" class="n"/><text x="456.0" y="78.0" class="t1">migrate (local)</text><text x="456.0" y="95.0" class="t2">SQLite db.sqlite3</text><text x="456.0" y="109.5" class="t2">verify in /admin/</text><rect x="654.0" y="52.0" width="150" height="107.5" rx="7" class="n"/><text x="666.0" y="78.0" class="t1">Commit + push</text><text x="666.0" y="95.0" class="t2">migration ships</text><text x="666.0" y="109.5" class="t2">with the code</text><rect x="864.0" y="52.0" width="150" height="107.5" rx="7" class="n n--a"/><text x="876.0" y="78.0" class="t1">Vercel build</text><text x="876.0" y="95.0" class="t2">migrate --noinput</text><text x="876.0" y="109.5" class="t2">applies pending only</text><rect x="1074.0" y="52.0" width="150" height="107.5" rx="7" class="n n--s"/><text x="1086.0" y="78.0" class="t1">Production</text><text x="1086.0" y="95.0" class="t1">schema</text><text x="1086.0" y="112.0" class="t2">django_migrations</text><text x="1086.0" y="126.5" class="t2">records what is</text><text x="1086.0" y="141.0" class="t2">applied</text><path d="M174.0 105.8 L234.0 105.8" class="ln" marker-end="url(#arch-migration-ah)"/><rect x="175.4" y="97.8" width="57.2" height="15" rx="3" class="lbl-bg"/><text x="204.0" y="108.8" class="t3" text-anchor="middle">generate</text><path d="M384.0 105.8 L444.0 105.8" class="ln" marker-end="url(#arch-migration-ah)"/><rect x="394.2" y="97.8" width="39.5" height="15" rx="3" class="lbl-bg"/><text x="414.0" y="108.8" class="t3" text-anchor="middle">apply</text><path d="M594.0 105.8 L654.0 105.8" class="ln" marker-end="url(#arch-migration-ah)"/><rect x="610.1" y="97.8" width="27.7" height="15" rx="3" class="lbl-bg"/><text x="624.0" y="108.8" class="t3" text-anchor="middle">git</text><path d="M804.0 105.8 L864.0 105.8" class="ln ln--a" marker-end="url(#arch-migration-aha)"/><rect x="814.2" y="97.8" width="39.5" height="15" rx="3" class="lbl-bg"/><text x="834.0" y="108.8" class="t3" text-anchor="middle">build</text><path d="M1014.0 105.8 L1074.0 105.8" class="ln" marker-end="url(#arch-migration-ah)"/><rect x="1018.4" y="97.8" width="51.3" height="15" rx="3" class="lbl-bg"/><text x="1044.0" y="108.8" class="t3" text-anchor="middle">records</text><rect x="16" y="8" width="586" height="163.5" rx="9" class="band"/><text x="28.0" y="24.0" class="t4">LOCAL</text><rect x="654" y="8" width="586" height="163.5" rx="9" class="band"/><text x="666.0" y="24.0" class="t4">GITHUB → VERCEL</text></svg>

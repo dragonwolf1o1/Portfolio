@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="arch-svg" viewBox="0 0 1274 138" width="1274" height="138" role="img" aria-labelledby="arch-churn-sys-t arch-churn-sys-d"><title id="arch-churn-sys-t">Customer Turnover pipeline architecture</title><desc id="arch-churn-sys-d">Customer records; Feature engineering; Hypothesis testing; Models; Evaluation; At-risk customers</desc><style>
+.arch-svg{font-family:Inter,system-ui,sans-serif}
+.arch-svg .bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .n{fill:var(--arch-card,#1c2028);stroke:var(--arch-line,#3e4850);stroke-width:1.25}
+.arch-svg .n--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .n--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .n--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .n--ph{stroke:var(--arch-tertiary,#ffb86e);stroke-dasharray:5 4}
+.arch-svg .t1{font:700 13px "Plus Jakarta Sans",Inter,system-ui,sans-serif;fill:var(--arch-text,#dfe2ee)}
+.arch-svg .t2{font:400 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-muted,#bec8d2)}
+.arch-svg .t3{font:500 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-dim,#9aa5af)}
+.arch-svg .t4{font:700 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff);letter-spacing:.06em}
+.arch-svg .ln{fill:none;stroke:var(--arch-dim,#9aa5af);stroke-width:1.5}
+.arch-svg .ln--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .ln--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .ln--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .ln--d{stroke-dasharray:6 5}
+.arch-svg .ah{fill:var(--arch-dim,#9aa5af)}
+.arch-svg .ah--a{fill:var(--arch-primary,#89ceff)}
+.arch-svg .lbl-bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .dot{fill:var(--arch-primary,#89ceff)}
+.arch-svg .er-h{fill:var(--arch-card-high,#262a33)}
+.arch-svg .er-line{stroke:var(--arch-line,#3e4850);stroke-width:1}
+.arch-svg .k-pk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e)}
+.arch-svg .k-fk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff)}
+.arch-svg .band{fill:rgba(137,206,255,.05);stroke:var(--arch-line,#3e4850);stroke-dasharray:3 4}
+.arch-svg .ph-frame{fill:none;stroke:var(--arch-tertiary,#ffb86e);stroke-width:1.25;stroke-dasharray:7 5;opacity:.75}
+.arch-svg .ph-tag{font:700 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e);letter-spacing:.08em}
+</style><defs><marker id="arch-churn-sys-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker><marker id="arch-churn-sys-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah ah--a"/></marker></defs><rect class="bg" x="0" y="0" width="1274" height="138" rx="10"/><rect x="24.0" y="34.0" width="176" height="76.0" rx="7" class="n"/><text x="36.0" y="60.0" class="t1">Customer records</text><text x="36.0" y="77.0" class="t2">historical customers</text><rect x="234.0" y="34.0" width="176" height="76.0" rx="7" class="n n--a"/><text x="246.0" y="60.0" class="t1">Feature engineering</text><text x="246.0" y="77.0" class="t2">derived predictors</text><rect x="444.0" y="34.0" width="176" height="76.0" rx="7" class="n"/><text x="456.0" y="60.0" class="t1">Hypothesis testing</text><text x="456.0" y="77.0" class="t2">key turnover factors</text><rect x="654.0" y="34.0" width="176" height="76.0" rx="7" class="n n--a"/><text x="666.0" y="60.0" class="t1">Models</text><text x="666.0" y="77.0" class="t2">logistic regression</text><text x="666.0" y="91.5" class="t2">decision trees</text><rect x="864.0" y="34.0" width="176" height="76.0" rx="7" class="n n--s"/><text x="876.0" y="60.0" class="t1">Evaluation</text><text x="876.0" y="77.0" class="t2">82% accuracy</text><rect x="1074.0" y="34.0" width="176" height="76.0" rx="7" class="n"/><text x="1086.0" y="60.0" class="t1">At-risk customers</text><text x="1086.0" y="77.0" class="t2">churn predictions</text><path d="M200.0 72.0 L234.0 72.0" class="ln ln--a" marker-end="url(#arch-churn-sys-aha)"/><path d="M410.0 72.0 L444.0 72.0" class="ln" marker-end="url(#arch-churn-sys-ah)"/><path d="M620.0 72.0 L654.0 72.0" class="ln ln--a" marker-end="url(#arch-churn-sys-aha)"/><path d="M830.0 72.0 L864.0 72.0" class="ln" marker-end="url(#arch-churn-sys-ah)"/><path d="M1040.0 72.0 L1074.0 72.0" class="ln" marker-end="url(#arch-churn-sys-ah)"/></svg>

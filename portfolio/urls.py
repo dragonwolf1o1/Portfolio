@@ -11,6 +11,7 @@ urlpatterns = [
     path("resume/", views.resume, name="resume"),
     path("projects/", views.projects, name="projects"),
     path("contact/", views.contact, name="contact"),
+    path("architecture/", views.architecture, name="architecture"),
     path("error/404/", views.error_404, name="error_404"),
     path("error/500/", views.error_500, name="error_500"),
     re_path(r"^.*$", views.error_404, name="catch_all_404"),

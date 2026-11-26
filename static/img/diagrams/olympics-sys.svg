@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="arch-svg" viewBox="0 0 1064 167" width="1064" height="167" role="img" aria-labelledby="arch-olympics-sys-t arch-olympics-sys-d"><title id="arch-olympics-sys-t">Sports Analytics pipeline architecture</title><desc id="arch-olympics-sys-d">Raw Olympic data; Load &amp; normalise; MySQL warehouse; SQL analytics; Power BI dashboard</desc><style>
+.arch-svg{font-family:Inter,system-ui,sans-serif}
+.arch-svg .bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .n{fill:var(--arch-card,#1c2028);stroke:var(--arch-line,#3e4850);stroke-width:1.25}
+.arch-svg .n--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .n--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .n--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .n--ph{stroke:var(--arch-tertiary,#ffb86e);stroke-dasharray:5 4}
+.arch-svg .t1{font:700 13px "Plus Jakarta Sans",Inter,system-ui,sans-serif;fill:var(--arch-text,#dfe2ee)}
+.arch-svg .t2{font:400 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-muted,#bec8d2)}
+.arch-svg .t3{font:500 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-dim,#9aa5af)}
+.arch-svg .t4{font:700 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff);letter-spacing:.06em}
+.arch-svg .ln{fill:none;stroke:var(--arch-dim,#9aa5af);stroke-width:1.5}
+.arch-svg .ln--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .ln--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .ln--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .ln--d{stroke-dasharray:6 5}
+.arch-svg .ah{fill:var(--arch-dim,#9aa5af)}
+.arch-svg .ah--a{fill:var(--arch-primary,#89ceff)}
+.arch-svg .lbl-bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .dot{fill:var(--arch-primary,#89ceff)}
+.arch-svg .er-h{fill:var(--arch-card-high,#262a33)}
+.arch-svg .er-line{stroke:var(--arch-line,#3e4850);stroke-width:1}
+.arch-svg .k-pk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e)}
+.arch-svg .k-fk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff)}
+.arch-svg .band{fill:rgba(137,206,255,.05);stroke:var(--arch-line,#3e4850);stroke-dasharray:3 4}
+.arch-svg .ph-frame{fill:none;stroke:var(--arch-tertiary,#ffb86e);stroke-width:1.25;stroke-dasharray:7 5;opacity:.75}
+.arch-svg .ph-tag{font:700 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e);letter-spacing:.08em}
+</style><defs><marker id="arch-olympics-sys-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker><marker id="arch-olympics-sys-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah ah--a"/></marker></defs><rect class="bg" x="0" y="0" width="1064" height="167" rx="10"/><rect x="24.0" y="34.0" width="176" height="105.0" rx="7" class="n"/><text x="36.0" y="60.0" class="t1">Raw Olympic data</text><text x="36.0" y="77.0" class="t2">1896–2016</text><text x="36.0" y="91.5" class="t2">120 years of games</text><rect x="234.0" y="34.0" width="176" height="105.0" rx="7" class="n n--a"/><text x="246.0" y="60.0" class="t1">Load &amp; normalise</text><text x="246.0" y="77.0" class="t2">Python · SQL</text><rect x="444.0" y="34.0" width="176" height="105.0" rx="7" class="n n--s"/><text x="456.0" y="60.0" class="t1">MySQL warehouse</text><text x="456.0" y="77.0" class="t2">11 relational tables</text><text x="456.0" y="91.5" class="t2">268K+ records</text><rect x="654.0" y="34.0" width="176" height="105.0" rx="7" class="n"/><text x="666.0" y="60.0" class="t1">SQL analytics</text><text x="666.0" y="77.0" class="t2">17 advanced queries</text><text x="666.0" y="91.5" class="t2">128K+ athletes · 66</text><text x="666.0" y="106.0" class="t2">sports</text><text x="666.0" y="120.5" class="t2">757 events</text><rect x="864.0" y="34.0" width="176" height="105.0" rx="7" class="n n--a"/><text x="876.0" y="60.0" class="t1">Power BI dashboard</text><text x="876.0" y="77.0" class="t2">260K+ participation</text><text x="876.0" y="91.5" class="t2">records</text><text x="876.0" y="106.0" class="t2">demographic outliers</text><text x="876.0" y="120.5" class="t2">medal trends</text><path d="M200.0 86.5 L234.0 86.5" class="ln ln--a" marker-end="url(#arch-olympics-sys-aha)"/><path d="M410.0 86.5 L444.0 86.5" class="ln" marker-end="url(#arch-olympics-sys-ah)"/><path d="M620.0 86.5 L654.0 86.5" class="ln" marker-end="url(#arch-olympics-sys-ah)"/><path d="M830.0 86.5 L864.0 86.5" class="ln ln--a" marker-end="url(#arch-olympics-sys-aha)"/></svg>

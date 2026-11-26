@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="arch-svg" viewBox="0 0 1270 167" width="1270" height="167" role="img" aria-labelledby="arch-admin-t arch-admin-d"><title id="arch-admin-t">Django Admin to page rendering flow</title><desc id="arch-admin-d">Staff edit models in Django Admin; ModelAdmin classes write through the ORM to SQLite locally or MySQL on Vercel; views and the site_content context processor read them back into templates.</desc><style>
+.arch-svg{font-family:Inter,system-ui,sans-serif}
+.arch-svg .bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .n{fill:var(--arch-card,#1c2028);stroke:var(--arch-line,#3e4850);stroke-width:1.25}
+.arch-svg .n--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .n--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .n--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .n--ph{stroke:var(--arch-tertiary,#ffb86e);stroke-dasharray:5 4}
+.arch-svg .t1{font:700 13px "Plus Jakarta Sans",Inter,system-ui,sans-serif;fill:var(--arch-text,#dfe2ee)}
+.arch-svg .t2{font:400 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-muted,#bec8d2)}
+.arch-svg .t3{font:500 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-dim,#9aa5af)}
+.arch-svg .t4{font:700 10.5px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff);letter-spacing:.06em}
+.arch-svg .ln{fill:none;stroke:var(--arch-dim,#9aa5af);stroke-width:1.5}
+.arch-svg .ln--a{stroke:var(--arch-primary,#89ceff)}
+.arch-svg .ln--s{stroke:var(--arch-secondary,#4fdbc8)}
+.arch-svg .ln--t{stroke:var(--arch-tertiary,#ffb86e)}
+.arch-svg .ln--d{stroke-dasharray:6 5}
+.arch-svg .ah{fill:var(--arch-dim,#9aa5af)}
+.arch-svg .ah--a{fill:var(--arch-primary,#89ceff)}
+.arch-svg .lbl-bg{fill:var(--arch-lowest,#0a0e16)}
+.arch-svg .dot{fill:var(--arch-primary,#89ceff)}
+.arch-svg .er-h{fill:var(--arch-card-high,#262a33)}
+.arch-svg .er-line{stroke:var(--arch-line,#3e4850);stroke-width:1}
+.arch-svg .k-pk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e)}
+.arch-svg .k-fk{font:700 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-primary,#89ceff)}
+.arch-svg .band{fill:rgba(137,206,255,.05);stroke:var(--arch-line,#3e4850);stroke-dasharray:3 4}
+.arch-svg .ph-frame{fill:none;stroke:var(--arch-tertiary,#ffb86e);stroke-width:1.25;stroke-dasharray:7 5;opacity:.75}
+.arch-svg .ph-tag{font:700 10px "JetBrains Mono",ui-monospace,monospace;fill:var(--arch-tertiary,#ffb86e);letter-spacing:.08em}
+</style><defs><marker id="arch-admin-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker><marker id="arch-admin-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah ah--a"/></marker></defs><rect class="bg" x="0" y="0" width="1270" height="167" rx="10"/><rect x="24.0" y="34.0" width="152" height="105.0" rx="7" class="n n--a"/><text x="36.0" y="60.0" class="t1">Django Admin</text><text x="36.0" y="77.0" class="t2">/admin/ · staff</text><text x="36.0" y="91.5" class="t2">login</text><text x="36.0" y="106.0" class="t2">site header:</text><text x="36.0" y="120.5" class="t2">Portfolio Admin</text><rect x="238.0" y="34.0" width="152" height="105.0" rx="7" class="n"/><text x="250.0" y="60.0" class="t1">ModelAdmin</text><text x="250.0" y="77.0" class="t2">list_editable ·</text><text x="250.0" y="91.5" class="t2">search</text><text x="250.0" y="106.0" class="t2">inlines ·</text><text x="250.0" y="120.5" class="t2">list_filter</text><rect x="452.0" y="34.0" width="152" height="105.0" rx="7" class="n"/><text x="464.0" y="60.0" class="t1">ORM models</text><text x="464.0" y="77.0" class="t2">portfolio.models</text><text x="464.0" y="91.5" class="t2">12 models ·</text><text x="464.0" y="106.0" class="t2">OrderedContent</text><rect x="666.0" y="34.0" width="152" height="105.0" rx="7" class="n n--s"/><text x="678.0" y="60.0" class="t1">Database</text><text x="678.0" y="77.0" class="t2">SQLite (local dev)</text><text x="678.0" y="91.5" class="t2">MySQL via</text><text x="678.0" y="106.0" class="t2">DATABASE_URL</text><rect x="880.0" y="34.0" width="152" height="105.0" rx="7" class="n"/><text x="892.0" y="60.0" class="t1">Views + context</text><text x="892.0" y="77.0" class="t2">views.py query the</text><text x="892.0" y="91.5" class="t2">models</text><text x="892.0" y="106.0" class="t2">site_content()</text><text x="892.0" y="120.5" class="t2">merges SiteText</text><rect x="1094.0" y="34.0" width="152" height="105.0" rx="7" class="n n--a"/><text x="1106.0" y="60.0" class="t1">Django templates</text><text x="1106.0" y="77.0" class="t2">index · about ·</text><text x="1106.0" y="91.5" class="t2">resume</text><text x="1106.0" y="106.0" class="t2">projects · contact</text><path d="M176.0 86.5 L238.0 86.5" class="ln ln--a" marker-end="url(#arch-admin-aha)"/><rect x="172.5" y="78.5" width="69.0" height="15" rx="3" class="lbl-bg"/><text x="207.0" y="89.5" class="t3" text-anchor="middle">register()</text><path d="M390.0 86.5 L452.0 86.5" class="ln" marker-end="url(#arch-admin-ah)"/><rect x="404.2" y="78.5" width="33.6" height="15" rx="3" class="lbl-bg"/><text x="421.0" y="89.5" class="t3" text-anchor="middle">CRUD</text><path d="M604.0 86.5 L666.0 86.5" class="ln" marker-end="url(#arch-admin-ah)"/><rect x="621.1" y="78.5" width="27.7" height="15" rx="3" class="lbl-bg"/><text x="635.0" y="89.5" class="t3" text-anchor="middle">SQL</text><path d="M818.0 86.5 L880.0 86.5" class="ln" marker-end="url(#arch-admin-ah)"/><rect x="817.5" y="78.5" width="63.1" height="15" rx="3" class="lbl-bg"/><text x="849.0" y="89.5" class="t3" text-anchor="middle">QuerySets</text><path d="M1032.0 86.5 L1094.0 86.5" class="ln ln--a" marker-end="url(#arch-admin-aha)"/><rect x="1034.4" y="78.5" width="57.2" height="15" rx="3" class="lbl-bg"/><text x="1063.0" y="89.5" class="t3" text-anchor="middle">render()</text></svg>
